@@ -1,5 +1,5 @@
 function findProductPrice(products, name) {
-  // Binary search
+  // Binary search >> ข้อมูลเรียงตามตัวอักษรตัวแรกแล้ว เลยเอา string มาเปรียบเทียบได้
   let left = 0;
   let right = products.length - 1;
 
@@ -7,9 +7,9 @@ function findProductPrice(products, name) {
     let mid = Math.floor((left + right) /2);
     if (products[mid].name === name){
       return products[mid].price;
-    } else if (products[mid] !== name){
-      left = mid + 1;    
-    } else{
+    } else if (products[mid].name < name){
+      left = mid + 1;
+    } else {
       right = mid - 1;
     }
   }
